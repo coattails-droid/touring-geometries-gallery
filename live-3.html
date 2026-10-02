@@ -42,7 +42,9 @@
   var ctx = canvas.getContext("2d");
   function fit() {
     var s = Math.min(window.innerWidth, window.innerHeight);
-    canvas.width = s; canvas.height = s;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var rs = Math.min(Math.round(s * dpr), 1080);
+    canvas.width = rs; canvas.height = rs;
     canvas.style.width = s + "px"; canvas.style.height = s + "px";
   }
   fit();
